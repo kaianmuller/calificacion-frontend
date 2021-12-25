@@ -1,0 +1,52 @@
+<div class="page">
+    <label class="title">Calificacion</label>
+    <div class="formulario">
+        <form [formGroup]="FORMULARIO.formulario" (ngSubmit)="FORMULARIO.submit($event)" (keydown.enter)="$event.preventDefault()">
+        <div class="panel-top">
+        <div class="panel-left">
+        <div class="p-field">
+        <label>Nombre*</label>
+        <input id="nombre" formControlName="nombre" type="username" pInputText  [pTooltip]="FORMULARIO.formErrors.nombre" tooltipEvent="focus" [style]="FORMULARIO.markField('nombre')" />
+        </div>
+        <div class="p-field">
+            <label>Correo*</label>
+            <input id="correo" formControlName="correo" type="email" pInputText [pTooltip]="FORMULARIO.formErrors.correo" tooltipEvent="focus" [style]="FORMULARIO.markField('correo')"  />
+        </div>
+        </div>
+        <div class="panel-right" *ngIf="(FORMULARIO.getPuntaje() != null && FORMULARIO.getPuntaje() <=2)">
+            <div class="contacto">
+                    <div class="p-field">
+                        <label>Empresa</label>
+                        <input id="correo" formControlName="correo" type="email" pInputText />
+                    </div> 
+                    <div class="p-field">
+                        <label>Telefono</label>
+                        <input id="telefono" formControlName="telefono" type="number" pInputText/>
+                    </div> 
+            </div>
+        </div>
+        </div>
+        <div class="panel-center">
+            <div class="p-field">
+                <label>Observaciones</label>
+                <textarea pInputTextarea></textarea>
+            </div>
+    
+            <div class="puntaje">
+                <label>Puntaje*</label>
+                <div [pTooltip]="FORMULARIO.formErrors.puntaje" tooltipEvent="hover" [style]="FORMULARIO.markField('puntaje')">
+                    <i [style]="FORMULARIO.setStarStyle(1).color" [class]="FORMULARIO.setStarStyle(1).icon" (click)="FORMULARIO.setPuntaje(1)"></i>
+                    <i [style]="FORMULARIO.setStarStyle(2).color" [class]="FORMULARIO.setStarStyle(2).icon" (click)="FORMULARIO.setPuntaje(2)"></i>
+                    <i [style]="FORMULARIO.setStarStyle(3).color" [class]="FORMULARIO.setStarStyle(3).icon" (click)="FORMULARIO.setPuntaje(3)"></i>
+                    <i [style]="FORMULARIO.setStarStyle(4).color" [class]="FORMULARIO.setStarStyle(4).icon" (click)="FORMULARIO.setPuntaje(4)"></i>
+                    <i [style]="FORMULARIO.setStarStyle(5).color" [class]="FORMULARIO.setStarStyle(5).icon" (click)="FORMULARIO.setPuntaje(5)"></i>
+                </div>
+            </div>
+        </div>
+        <div class="panel-bottom">
+            <button class="volver" label="Volver" (click)="volverHome()"  pButton></button>
+            <button class="enviar" label="Enviar" pButton></button>
+        </div>
+        </form>
+    </div>
+</div>

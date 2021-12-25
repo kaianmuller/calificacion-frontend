@@ -1,0 +1,108 @@
+.page{
+    height: 31rem;
+    border: solid 1px gray;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+
+.title{
+    font-size: 25px;
+    margin: 10px;
+    color: darkslategray;
+    font-weight: bold;
+}
+
+.formulario{
+    height: 20rem;
+    margin-left:15px;
+    margin-right: 15px;
+}
+
+.panel-top{
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+}
+
+.panel-left div{
+    width: 15rem;
+    margin:10px;
+}
+
+.panel-right div{
+    width: 15rem;
+    margin: 10px;
+}
+
+.panel-center{
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+.panel-center div{
+    width: 15rem;
+    margin: 10px;
+}
+
+.p-field{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.puntaje{
+    display: flex;
+    flex-direction: column;
+}
+.puntaje div{
+    display: flex;
+    flex-direction: row;
+}
+
+
+.panel-bottom{
+    display: flex;
+    margin: 10px;
+}
+
+.volver{
+    width: 5.5rem;
+    height: 2.8rem;
+    margin-right: auto;
+    margin-left: 10px;
+    background-color: white;
+    color: black;
+}
+
+.enviar{
+    width: 5.5rem;
+    height: 2.8rem;
+    margin-left: auto;
+    margin-right: 5px;
+}
+
+
+
+label{
+    font-family: sans-serif,Arial;
+}
+
+
+textarea{
+    resize: none;
+}
+
+
+
+i{
+    font-size: 35px;
+    margin: 5px;
+}
+
+i:hover{
+    cursor: pointer;
+}
