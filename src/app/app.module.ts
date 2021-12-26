@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { CalificacionesModule } from './modules/calificaciones/calificaciones.module';
 import { HomeModule } from './modules/home/home.module';
 
 @NgModule({
@@ -12,7 +13,8 @@ import { HomeModule } from './modules/home/home.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HomeModule
+    HomeModule,
+    CalificacionesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
