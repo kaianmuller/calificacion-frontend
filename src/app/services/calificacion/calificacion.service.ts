@@ -1,13 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { GenericService } from 'src/app/shared/generic/generic-service';
+import { GenericServiceService } from 'src/app/shared/generic/services/generic-service/generic-service.service';
 import { Calificacion } from 'src/app/shared/models/Calificacion.model';
 import { Utils } from 'src/app/shared/Utils';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CalificacionService extends GenericService<Calificacion>{
+export class CalificacionService extends GenericServiceService<Calificacion>{
 
   constructor(private readonly http: HttpClient) {
     super('calificaciones', http);

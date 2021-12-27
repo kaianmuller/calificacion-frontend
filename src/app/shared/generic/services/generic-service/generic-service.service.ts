@@ -1,10 +1,9 @@
-import { HttpClient } from "@angular/common/http";
-import { Utils } from "../Utils";
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Utils } from 'src/app/shared/Utils';
 
+export class GenericServiceService<E> {
 
-
-
-export class GenericService<E>{
     constructor(
         private serviceName: string,
         private readonly _http: HttpClient

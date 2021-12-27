@@ -1,3 +1,4 @@
+import {HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -14,9 +15,10 @@ import { HomeModule } from './modules/home/home.module';
     BrowserModule,
     AppRoutingModule,
     HomeModule,
-    CalificacionesModule
+    CalificacionesModule,
+    HttpClientModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }
