@@ -7,6 +7,7 @@ export class SystemMessagesService {
 
   systemMessages = Array<{ [key: string]: any }>();
   formMessages = Array<{ [key: string]: any }>();
+  dialogMessages = Array<{ [key: string]: any }>();
 
   constructor() {
     this.systemMessages = [
@@ -21,9 +22,11 @@ export class SystemMessagesService {
 
     this.formMessages = [
       { required: '- Este campo es requerido!' },
-      { existe: '- El correo ingresado ya existe en el sistema!' },
+      { existe: '- El elemento ingresado ya existe en el sistema!' },
       { maxlength: '- Excediste el numero maximo de caracteres permitido!' },
+      { min: '- Este campo requiere un valor superior!' },
     ];
+
   }
 
   getFormMessages(validator: any) {

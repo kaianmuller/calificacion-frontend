@@ -1,6 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
-import { SystemMessagesService } from 'src/app/services/system-messages.service';
+import { SystemMessagesService } from 'src/app/services/system-messages/system-messages.service';
 import { Calificacion } from 'src/app/shared/models/Calificacion.model';
 
 @Component({
