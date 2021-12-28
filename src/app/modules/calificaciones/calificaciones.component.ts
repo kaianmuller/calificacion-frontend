@@ -11,6 +11,7 @@ import { Calificacion } from 'src/app/shared/models/Calificacion.model';
 export class CalificacionesComponent implements OnInit {
   items: Calificacion[] = [];
 
+  count:number = 0;
   constructor(private calificServ:CalificacionService,private authServ:AuthService) { }
 
   ngOnInit(): void {
@@ -21,6 +22,18 @@ export class CalificacionesComponent implements OnInit {
 
   getAll(){
     this.calificServ.getAll().then((result)=>{this.items = result});
+    this.getCount();
+  }
+
+
+  getCount(){
+    this.calificServ.getCount().then((result)=>{this.count = result});
+  }
+
+  calcularPromedio(){
+    var suma = 0;
+    this.items.forEach(e => suma+=e.puntaje);
+    return suma / this.items.length;
   }
 
   logout(){

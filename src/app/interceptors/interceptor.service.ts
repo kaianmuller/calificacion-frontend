@@ -6,6 +6,7 @@ import {
   HttpRequest,
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { AuthService } from '../services/auth/auth.service';
@@ -14,7 +15,7 @@ import { AuthService } from '../services/auth/auth.service';
 })
 export class InterceptorService {
 
-  constructor(private readonly authServ: AuthService) {}
+  constructor(private readonly authServ: AuthService,private router:Router) {}
 
   intercept(
     req: HttpRequest<any>,
@@ -33,6 +34,8 @@ export class InterceptorService {
   captureError(error: HttpErrorResponse) {
     if (error.status == 403 || error.status == 401) {
       console.log('no estas authorizado: interceptor');
+      this.authServ.logout();
+      this.router.navigate(['/home']);
     } else if (
       error.status == 0 ||
       error.status == 404 ||

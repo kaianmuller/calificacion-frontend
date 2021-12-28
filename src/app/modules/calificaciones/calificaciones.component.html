@@ -4,7 +4,14 @@
         <button class="logout" label="Salir" pButton (click)="logout()"></button>
     </div>
     <div class="panel-center">
+        <label class="title">Calificaciones</label>
+        <div class="stats">
+            <label><b>Total calificaciones:</b> {{count}}</label>
+            <label><b>Promedio puntaje:</b> {{calcularPromedio()}}</label>
+        </div>
         <div class="table">
+            <label class="title-table">Lista de  calificaciones</label>
+            <div>
             <p-table [value]="items" responsiveLayout="scroll">
               <ng-template pTemplate="header">
                 <tr>
@@ -27,6 +34,7 @@
                 </tr>
               </ng-template>
             </p-table>
+            </div>
         </div>
     </div>
 </div>

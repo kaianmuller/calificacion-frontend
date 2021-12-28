@@ -19,4 +19,11 @@ export class CalificacionService extends GenericServiceService<Calificacion>{
       .get<boolean>(Utils.ip() + '/calificaciones/existCalificacionByCorreo/' + correo)
       .toPromise();
   }
+
+
+  async count(){
+    return this.http
+      .get<Number>(Utils.ip() + '/calificaciones/count')
+      .toPromise();
+  }
 }
