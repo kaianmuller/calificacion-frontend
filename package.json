@@ -19,7 +19,6 @@
     "@angular/platform-browser": "~12.2.0",
     "@angular/platform-browser-dynamic": "~12.2.0",
     "@angular/router": "~12.2.0",
-    "@fortawesome/fontawesome-free": "^5.15.4",
     "primeicons": "^5.0.0",
     "primeng": "^13.0.3",
     "rxjs": "~6.6.0",
