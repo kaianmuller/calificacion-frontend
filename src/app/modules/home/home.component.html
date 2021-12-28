@@ -14,7 +14,10 @@
     </div>
     <div class="panel-center">
         <div class="inicio" *ngIf="!showCalificacionCard">
-            <label class="slogan">Su opinión es importante para nosotros, asi que califícanos!</label>
+            <div class="slogan">
+                <label class="msg1">Te gustó nuestro servicio?</label>
+                <label class="msg2">Demuestranos con su calificación!</label>
+            </div>
             <button class="calificar" pButton label="Empezar" (click)="showCalificacionCard = true"></button>
         </div>
         <div *ngIf="showCalificacionCard">

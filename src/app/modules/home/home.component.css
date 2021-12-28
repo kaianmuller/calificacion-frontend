@@ -21,6 +21,7 @@ margin: 20px;
     margin-left: auto;
     text-align: center;
     font-size: 0.9rem;
+    border-radius: 7%;
 }
 
 
@@ -42,18 +43,30 @@ margin: 20px;
 }
 
 .slogan{
-    margin: 20px;
+margin: 15px;
+}
+
+.slogan .msg1{
+    font-size: 26px;
+    margin: 5px;
+    color: limegreen;
+}
+
+.slogan .msg2{
     font-size: 30px;
+    margin: 5px;
+    color: rgb(59, 59, 59);
 }
 
 .calificar{
     background-color: slateblue;
     margin: auto;
     text-align: center;
-    font-size: 1.1rem;
+    font-size: 1rem;
     outline: none;
     border: none;
     padding: 17px;
+    border-radius: 12%;
 }
 
 
