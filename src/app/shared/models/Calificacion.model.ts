@@ -9,6 +9,6 @@ export class Calificacion{
     correo!:string;
     puntaje!:number;
     observaciones!:string;
-    celular!:number;
-    
+    telefono!:number;
+
 }

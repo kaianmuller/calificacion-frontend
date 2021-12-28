@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { CalificacionesComponent } from './calificaciones.component';
 import {ButtonModule} from 'primeng/button';
 import { TableModule } from 'primeng/table';
+import { PaginatorModule } from 'primeng/paginator';
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import { TableModule } from 'primeng/table';
   imports: [
     CommonModule,
     ButtonModule,
-    TableModule
+    TableModule,
+    PaginatorModule
   ]
 })
 export class CalificacionesModule { }

@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Params } from '@angular/router';
 import { Utils } from 'src/app/shared/Utils';
 
 export class GenericServiceService<E> {
@@ -15,9 +16,9 @@ export class GenericServiceService<E> {
           .toPromise();
       }
     
-      async getAll() {
+      async getAll(params?:Params) {
         return await this._http
-          .get<Array<E>>(Utils.ip() + '/' + this.serviceName)
+          .get<Array<E>>(Utils.ip() + '/' + this.serviceName,{params: params})
           .toPromise();
       }
     

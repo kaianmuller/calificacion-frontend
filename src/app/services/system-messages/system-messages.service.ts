@@ -33,6 +33,8 @@ export class SystemMessagesService {
       { maxlength: '- Excediste el numero maximo de caracteres permitido (255)!' },
       { min: '- Este campo requiere un valor superior!' },
       { email: '- Este debe contener un email!' },
+      { pattern: '- Este campo solo permite numeros!' },
+
     ];
 
   }

@@ -21,10 +21,7 @@ export class InterceptorService {
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    const headers = new HttpHeaders({
-      'content-type': 'application/json',
-       Authorization: 'Bearer ' + this.authServ.getToken()?.toString(),
-    });
+    const headers = this.getAuthRoute();
 
     const reqClone = req.clone({ headers });
 
@@ -45,4 +42,22 @@ export class InterceptorService {
     }
     return throwError(error);
   }
+
+
+  getAuthRoute(){
+    return this.router.url != '/home'?
+    new HttpHeaders({
+      'content-type': 'application/json',
+       Authorization: 'Bearer ' + this.authServ.getToken()?.toString(),
+    }):
+    new HttpHeaders({
+      'content-type': 'application/json'
+    });
+  }
+
+
+
+
+
+
 }

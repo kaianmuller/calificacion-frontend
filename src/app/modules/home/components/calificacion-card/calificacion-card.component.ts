@@ -32,8 +32,9 @@ ngOnInit(): void {}
       puntaje:new FormControl(null,[Validators.required]),
       observaciones:new FormControl(null,[Validators.maxLength(255)]),
       empresa: new FormControl(null),
-      telefono: new FormControl(null),
+      telefono: new FormControl(null, [Validators.pattern("^[0-9]*$"),Validators.maxLength(12)]),
     });
+
     this.resetValidate();
   }
 
@@ -58,9 +59,9 @@ resetValidate() {
   this.formErrors = {
     nombre: '',
     correo: '',
-    puntaje: '',
     observaciones: '',
-    telefono: ''
+    telefono: '',
+    puntaje: '',
   };
 }
 
