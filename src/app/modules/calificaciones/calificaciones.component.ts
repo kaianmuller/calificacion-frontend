@@ -15,6 +15,8 @@ export class CalificacionesComponent implements OnInit {
   page = 0;
   size = 5;
 
+  mean:number = 0;
+
   constructor(private calificServ:CalificacionService,private authServ:AuthService) { }
 
   ngOnInit(): void {
@@ -26,6 +28,7 @@ export class CalificacionesComponent implements OnInit {
   getAll(){
     this.calificServ.getAll({page:this.page,size:this.size}).then((result)=>{this.items = result});
     this.getCount();
+    this.calcularPromedio();
   }
 
 
@@ -34,9 +37,7 @@ export class CalificacionesComponent implements OnInit {
   }
 
   calcularPromedio(){
-    var suma = 0;
-    this.items.forEach(e => suma+=e.puntaje);
-    return (suma / this.items.length)?suma / this.items.length:0;
+    this.calificServ.getMean().then((result)=>{this.mean = result});
   }
 
 
@@ -46,7 +47,7 @@ export class CalificacionesComponent implements OnInit {
 
 
   paginate(event: any) {
-    this.page = event.first;
+    this.page = event.first/event.rows;
     this.size = event.rows;
     this.getAll();
   }

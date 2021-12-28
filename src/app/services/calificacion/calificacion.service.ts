@@ -21,9 +21,15 @@ export class CalificacionService extends GenericServiceService<Calificacion>{
   }
 
 
-  async count(){
+  async getCount(){
     return this.http
-      .get<Number>(Utils.ip() + '/calificaciones/count')
+      .get<number>(Utils.ip() + '/calificaciones/count')
+      .toPromise();
+  }
+
+  async getMean(){
+    return this.http
+      .get<number>(Utils.ip() + '/calificaciones/mean')
       .toPromise();
   }
 }

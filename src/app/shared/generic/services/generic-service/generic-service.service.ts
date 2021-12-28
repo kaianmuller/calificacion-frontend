@@ -9,12 +9,7 @@ export class GenericServiceService<E> {
         private serviceName: string,
         private readonly _http: HttpClient
       ) {}
-    
-      async getCount() {
-        return await this._http
-          .get<number>(Utils.ip() + '/' + this.serviceName + '/count', {})
-          .toPromise();
-      }
+
     
       async getAll(params?:Params) {
         return await this._http
