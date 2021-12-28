@@ -1,7 +1,9 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
+import { CalificacionService } from 'src/app/services/calificacion/calificacion.service';
 import { SystemMessagesService } from 'src/app/services/system-messages/system-messages.service';
 import { Calificacion } from 'src/app/shared/models/Calificacion.model';
+import { Utils } from 'src/app/shared/Utils';
 
 @Component({
   selector: 'app-calificacion-card',
@@ -14,17 +16,19 @@ export class CalificacionCardComponent implements OnInit {
 
   FORMULARIO:Formulario;
 
-  constructor(private sysMsg:SystemMessagesService) {
-    this.FORMULARIO = new Formulario(this.sysMsg);
+  constructor(private sysMsg:SystemMessagesService,private calificServ:CalificacionService) {
+    this.FORMULARIO = new Formulario(this.sysMsg,calificServ);
    }
 
   ngOnInit(): void {
+    this.FORMULARIO.volver.subscribe(()=>{
+      this.volverHome();
+    })
   }
 
 
 
 volverHome(){
-  this.FORMULARIO.resetForm();
   this.volver.emit();
 }
 
@@ -42,7 +46,11 @@ class Formulario{
   formulario:FormGroup = new FormGroup({});
   formErrors: { [k: string]: string } = {};
 
-  constructor(private sysMsg:SystemMessagesService){
+  loadEmailIcon:boolean = false;
+
+  volver:EventEmitter<void> = new EventEmitter<void>();
+
+  constructor(private sysMsg:SystemMessagesService,private calificServ:CalificacionService){
   this.buildForm();
   }
 
@@ -52,9 +60,9 @@ class Formulario{
     this.formulario = new FormGroup({
       id: new FormControl(null),
       nombre: new FormControl('',[Validators.required]),
-      correo: new FormControl('',[Validators.required]),
+      correo: new FormControl('',[Validators.required,Validators.email],[this.exist.bind(this)]),
       puntaje:new FormControl(null,[Validators.required]),
-      observaciones:new FormControl(null),
+      observaciones:new FormControl(null,[Validators.maxLength(255)]),
       empresa: new FormControl(null),
       telefono: new FormControl(null),
     });
@@ -108,7 +116,10 @@ submit(event: Event) {
 
     console.log(calificacion);
 
+    this.calificServ.createOne(calificacion).then((result)=>{console.log(result)})
+
     this.resetForm();
+    this.volver.emit();
   } else {
     this.validate();
   }
@@ -134,19 +145,19 @@ focusFieldError() {
   }
 }
 
-/*
+
 async exist(control: AbstractControl) {
   this.loadEmailIcon = true;
-  return this.autoServ.existAutoByChapa(control.value).then((value) => {
-    this.loadChapaIcon = false;
-    if (value && Utils.isEmpty(this.autoTarget)) {
+  return this.calificServ.existCalificacionByCorreo(control.value).then((value) => {
+    this.loadEmailIcon = false;
+    if (value) {
       return { existe: true };
     } else {
       return null;
     }
   });
 }
-*/
+
 
 
 

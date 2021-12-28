@@ -16,7 +16,7 @@ export class CalificacionService extends GenericServiceService<Calificacion>{
 
   async existCalificacionByCorreo(correo: string) {
     return this.http
-      .get<boolean>(Utils.ip() + '/autos/existCalificacionByCorreo/' + correo)
+      .get<boolean>(Utils.ip() + '/calificaciones/existCalificacionByCorreo/' + correo)
       .toPromise();
   }
 }

@@ -19,7 +19,7 @@ export class CalificacionesComponent implements OnInit {
 
 
   getAll(){
-    this.calificServ.getAll().then((result)=>{this.items = result;console.log(result)});
+    this.calificServ.getAll().then((result)=>{this.items = result});
   }
 
 }

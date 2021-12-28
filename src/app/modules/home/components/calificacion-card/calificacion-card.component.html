@@ -17,7 +17,7 @@
             <div class="contacto">
                     <div class="p-field">
                         <label>Empresa</label>
-                        <input id="correo" formControlName="correo" type="email" pInputText />
+                        <input id="correo" formControlName="empresa" type="email" pInputText />
                     </div> 
                     <div class="p-field">
                         <label>Telefono</label>
@@ -29,7 +29,7 @@
         <div class="panel-center">
             <div class="p-field">
                 <label>Observaciones</label>
-                <textarea pInputTextarea></textarea>
+                <textarea pInputTextarea formControlName="observaciones" [pTooltip]="FORMULARIO.formErrors.observaciones" tooltipEvent="focus" [style]="FORMULARIO.markField('observaciones')"></textarea>
             </div>
     
             <div class="puntaje">
