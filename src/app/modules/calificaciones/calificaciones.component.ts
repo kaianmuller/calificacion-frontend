@@ -36,6 +36,11 @@ export class CalificacionesComponent implements OnInit {
     return suma / this.items.length;
   }
 
+
+  setStarStyle(i:number,puntaje:number){
+      return {color:i<=puntaje?{'color':'gold'}:{}, icon:i<=puntaje?'pi pi-star-fill':'pi pi-star'}
+  }
+
   logout(){
     this.authServ.logout();
   }

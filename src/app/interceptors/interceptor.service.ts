@@ -23,7 +23,7 @@ export class InterceptorService {
   ): Observable<HttpEvent<any>> {
     const headers = new HttpHeaders({
       'content-type': 'application/json',
-       authorization: 'Bearer ' + this.authServ.getToken()?.toString(),
+       Authorization: 'Bearer ' + this.authServ.getToken()?.toString(),
     });
 
     const reqClone = req.clone({ headers });

@@ -6,8 +6,8 @@
     <div class="panel-center">
         <label class="title">Calificaciones</label>
         <div class="stats">
-            <label><b>Total calificaciones:</b> {{count}}</label>
-            <label><b>Promedio puntaje:</b> {{calcularPromedio()}}</label>
+            <label><b>Total calificaciones:</b> <label>{{count}}</label></label>
+            <label><b>Promedio puntaje:</b> <label>{{calcularPromedio()}}</label></label>
         </div>
         <div class="table">
             <label class="title-table">Lista de  calificaciones</label>
@@ -27,7 +27,16 @@
                 <tr>
                   <td>{{ item.nombre }}</td>
                   <td>{{ item.correo }}</td>
-                  <td>{{ item.puntaje }}</td>
+                  <td>
+                    <div class="puntaje">
+                            <i [style]="setStarStyle(1,item.puntaje).color" [class]="setStarStyle(1,item.puntaje).icon"></i>
+                            <i [style]="setStarStyle(2,item.puntaje).color" [class]="setStarStyle(2,item.puntaje).icon"></i>
+                            <i [style]="setStarStyle(3,item.puntaje).color" [class]="setStarStyle(3,item.puntaje).icon"></i>
+                            <i [style]="setStarStyle(4,item.puntaje).color" [class]="setStarStyle(4,item.puntaje).icon"></i>
+                            <i [style]="setStarStyle(5,item.puntaje).color" [class]="setStarStyle(5,item.puntaje).icon"></i>
+                            <label>({{item.puntaje}})</label>
+                    </div>
+                  </td>
                   <td>{{ item.observaciones }}</td>
                   <td>{{ item.empresa}}</td>
                   <td>{{ item.telefono }}</td>

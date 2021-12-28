@@ -49,15 +49,24 @@ padding: 10px;
 }
 
 .stats label{
-    margin: 10px;
+    margin: 12px;
     font-size: 14px;
+    color: rgb(73, 73, 73);
+}
+
+.stats label label{
+    font-size: 18px;
+    font-weight: bold;
+    color: limegreen;
+    margin: 10px;
 }
 
 
 
 .title-table{
- font-size: 20px;
+ font-size: 22px;
  margin-bottom: 10px;
+ margin-left: 25px;
 }
 
 
@@ -77,6 +86,16 @@ padding: 10px;
 
 th,td{
     text-align: center !important;
+}
+
+
+.puntaje{
+    position: relative;
+    left: 10px;
+}
+
+.puntaje label{
+    margin: 8px;
 }
 
 
