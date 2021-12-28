@@ -1,19 +1,19 @@
 <div class="page">
     <label class="title">Calificacion</label>
     <div class="formulario">
-        <form [formGroup]="FORMULARIO.formulario" (ngSubmit)="FORMULARIO.submit($event)" (keydown.enter)="$event.preventDefault()">
+        <form [formGroup]="formulario" (ngSubmit)="submit($event)" (keydown.enter)="$event.preventDefault()">
         <div class="panel-top">
         <div class="panel-left">
         <div class="p-field">
         <label>Nombre*</label>
-        <input id="nombre" formControlName="nombre" type="username" pInputText  [pTooltip]="FORMULARIO.formErrors.nombre" tooltipEvent="focus" [style]="FORMULARIO.markField('nombre')" />
+        <input id="nombre" formControlName="nombre" type="username" pInputText  [pTooltip]="formErrors.nombre" tooltipEvent="focus" [style]="markField('nombre')" />
         </div>
         <div class="p-field">
             <label>Correo*</label>
-            <input id="correo" formControlName="correo" type="email" pInputText [pTooltip]="FORMULARIO.formErrors.correo" tooltipEvent="focus" [style]="FORMULARIO.markField('correo')"  />
+            <input id="correo" formControlName="correo" type="email" pInputText [pTooltip]="formErrors.correo" tooltipEvent="focus" [style]="markField('correo')"  />
         </div>
         </div>
-        <div class="panel-right" *ngIf="(FORMULARIO.getPuntaje() != null && FORMULARIO.getPuntaje() <=2)">
+        <div class="panel-right" *ngIf="(getPuntaje() != null && getPuntaje() <=2)">
             <div class="contacto">
                     <div class="p-field">
                         <label>Empresa</label>
@@ -29,17 +29,17 @@
         <div class="panel-center">
             <div class="p-field">
                 <label>Observaciones</label>
-                <textarea pInputTextarea formControlName="observaciones" [pTooltip]="FORMULARIO.formErrors.observaciones" tooltipEvent="focus" [style]="FORMULARIO.markField('observaciones')"></textarea>
+                <textarea pInputTextarea formControlName="observaciones" [pTooltip]="formErrors.observaciones" tooltipEvent="focus" [style]="markField('observaciones')"></textarea>
             </div>
     
             <div class="puntaje">
                 <label>Puntaje*</label>
-                <div [pTooltip]="FORMULARIO.formErrors.puntaje" tooltipEvent="hover" [style]="FORMULARIO.markField('puntaje')">
-                    <i [style]="FORMULARIO.setStarStyle(1).color" [class]="FORMULARIO.setStarStyle(1).icon" (click)="FORMULARIO.setPuntaje(1)"></i>
-                    <i [style]="FORMULARIO.setStarStyle(2).color" [class]="FORMULARIO.setStarStyle(2).icon" (click)="FORMULARIO.setPuntaje(2)"></i>
-                    <i [style]="FORMULARIO.setStarStyle(3).color" [class]="FORMULARIO.setStarStyle(3).icon" (click)="FORMULARIO.setPuntaje(3)"></i>
-                    <i [style]="FORMULARIO.setStarStyle(4).color" [class]="FORMULARIO.setStarStyle(4).icon" (click)="FORMULARIO.setPuntaje(4)"></i>
-                    <i [style]="FORMULARIO.setStarStyle(5).color" [class]="FORMULARIO.setStarStyle(5).icon" (click)="FORMULARIO.setPuntaje(5)"></i>
+                <div [pTooltip]="formErrors.puntaje" tooltipEvent="hover" [style]="markField('puntaje')">
+                    <i [style]="setStarStyle(1).color" [class]="setStarStyle(1).icon" (click)="setPuntaje(1)"></i>
+                    <i [style]="setStarStyle(2).color" [class]="setStarStyle(2).icon" (click)="setPuntaje(2)"></i>
+                    <i [style]="setStarStyle(3).color" [class]="setStarStyle(3).icon" (click)="setPuntaje(3)"></i>
+                    <i [style]="setStarStyle(4).color" [class]="setStarStyle(4).icon" (click)="setPuntaje(4)"></i>
+                    <i [style]="setStarStyle(5).color" [class]="setStarStyle(5).icon" (click)="setPuntaje(5)"></i>
                 </div>
             </div>
         </div>

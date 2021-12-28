@@ -13,48 +13,16 @@ import { Utils } from 'src/app/shared/Utils';
 export class CalificacionCardComponent implements OnInit {
 @Output() volver:EventEmitter<void> = new EventEmitter<void>();
 
-
-  FORMULARIO:Formulario;
-
-  constructor(private sysMsg:SystemMessagesService,private calificServ:CalificacionService) {
-    this.FORMULARIO = new Formulario(this.sysMsg,calificServ);
-   }
-
-  ngOnInit(): void {
-    this.FORMULARIO.volver.subscribe(()=>{
-      this.volverHome();
-    })
-  }
-
-
-
-volverHome(){
-  this.volver.emit();
-}
-
-
-
-  }
-
-
-
-
-
-
-class Formulario{
-
   formulario:FormGroup = new FormGroup({});
   formErrors: { [k: string]: string } = {};
 
   loadEmailIcon:boolean = false;
 
-  volver:EventEmitter<void> = new EventEmitter<void>();
-
   constructor(private sysMsg:SystemMessagesService,private calificServ:CalificacionService){
   this.buildForm();
   }
 
-
+ngOnInit(): void {}
 
   buildForm(){
     this.formulario = new FormGroup({
@@ -119,7 +87,7 @@ submit(event: Event) {
     this.calificServ.createOne(calificacion).then((result)=>{console.log(result)})
 
     this.resetForm();
-    this.volver.emit();
+    this.volverHome();
   } else {
     this.validate();
   }
@@ -160,5 +128,11 @@ async exist(control: AbstractControl) {
 
 
 
-
+volverHome(){
+  this.volver.emit();
 }
+
+
+
+  }
+
