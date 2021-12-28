@@ -1,7 +1,16 @@
 <div class="page">
+
+    <p-toast [baseZIndex]="10000" position="bottom-right"></p-toast>
+
+
     <div class="panel-top">
         <img class="logo" src="assets/img/logo-datapar.png">
-        <button class="acceso" label="Acceso" pButton></button>
+        <button class="acceso" label="Acceso" pButton (click)="op.toggle($event)"></button>
+        <p-overlayPanel #op>
+            <ng-template pTemplate>
+                <app-login-card (sendFailLoginError)="showLoginFailMessage($event)"></app-login-card>
+            </ng-template>
+        </p-overlayPanel>
     </div>
     <div class="panel-center">
         <div class="inicio" *ngIf="!showCalificacionCard">

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth/auth.service';
 import { CalificacionService } from 'src/app/services/calificacion/calificacion.service';
 import { Calificacion } from 'src/app/shared/models/Calificacion.model';
 
@@ -10,7 +11,7 @@ import { Calificacion } from 'src/app/shared/models/Calificacion.model';
 export class CalificacionesComponent implements OnInit {
   items: Calificacion[] = [];
 
-  constructor(private calificServ:CalificacionService) { }
+  constructor(private calificServ:CalificacionService,private authServ:AuthService) { }
 
   ngOnInit(): void {
     this.getAll();
@@ -20,6 +21,10 @@ export class CalificacionesComponent implements OnInit {
 
   getAll(){
     this.calificServ.getAll().then((result)=>{this.items = result});
+  }
+
+  logout(){
+    this.authServ.logout();
   }
 
 }

@@ -15,7 +15,7 @@ export class AuthService {
 
   async login(login: Login){
     return await this.http
-      .post(Utils.ip() + '/v1/login', login)
+      .post(Utils.ip() + '/login', login)
       .toPromise()
       .then((result) => this.storage(result));
   }
@@ -23,7 +23,7 @@ export class AuthService {
 
 
   storage(result: any):void{
-    localStorage.setItem('token', result);
+    localStorage.setItem('token', result.token);
     this.router.navigate(['/calificaciones']);
   }
 

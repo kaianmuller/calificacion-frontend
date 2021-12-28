@@ -8,6 +8,13 @@ import {InputTextModule} from 'primeng/inputtext';
 import {InputTextareaModule} from 'primeng/inputtextarea';
 import { ReactiveFormsModule } from '@angular/forms';
 import {TooltipModule} from 'primeng/tooltip';
+import {OverlayPanelModule} from 'primeng/overlaypanel';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MessagesModule} from 'primeng/messages';
+import {MessageModule} from 'primeng/message';
+import {ToastModule} from 'primeng/toast';
+import { MessageService } from 'primeng/api';
 
 @NgModule({
   declarations: [
@@ -21,8 +28,15 @@ import {TooltipModule} from 'primeng/tooltip';
     ButtonModule,
     InputTextModule,
     InputTextareaModule,
-    TooltipModule
+    TooltipModule,
+    OverlayPanelModule,
+    BrowserModule,
+    BrowserAnimationsModule,
+    MessageModule,
+    MessagesModule,
+    ToastModule
   ],
-  exports:[HomeComponent]
+  exports:[HomeComponent],
+  providers:[MessageService]
 })
 export class HomeModule { }

@@ -16,8 +16,15 @@ export class SystemMessagesService {
           severity: 'error',
           summary: 'No se puede acceder al sistema.',
           detail: 'Credenciales invalidas!',
-        },
+        }
       },
+      {
+        403: {
+          severity: 'error',
+          summary: 'No se puede acceder al sistema.',
+          detail: 'Credenciales invalidas!',
+        }
+      }
     ];
 
     this.formMessages = [

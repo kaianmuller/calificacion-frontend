@@ -1,1 +1,28 @@
-<p>login-card works!</p>
+<div class="page">
+    <Label class="title">Login</Label>
+    <div class="panel-in">
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+        <input id="user-input" 
+          type="text" 
+          [value]="login.username"
+          (blur)="login.username = getValue($event)"
+          (keyup.enter)="focusPassInput()"
+          placeholder="Username"
+        />
+      </div>
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon"><i class="pi pi-lock"></i></span>
+        <input
+          id="pass-input"
+          type="password"
+          [value]="login.password"
+          (blur)="login.password = getValue($event)"
+          (keyup.enter)="login.password = getValue($event); entrar()"
+          placeholder="Password"
+        />
+      </div>
+      <button class="entrar" pButton (click)="entrar()" label="Entrar"></button>
+    </div>
+  </div>
+  
