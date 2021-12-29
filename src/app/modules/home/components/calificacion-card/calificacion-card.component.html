@@ -21,7 +21,7 @@
                     </div> 
                     <div class="p-field">
                         <label>Telefono</label>
-                        <input id="telefono" formControlName="telefono" type="number" [pTooltip]="formErrors.telefono" tooltipEvent="focus" [style]="markField('telefono')" pInputText/>
+                        <input id="telefono" formControlName="telefono" type="text" [pTooltip]="formErrors.telefono" tooltipEvent="focus" [style]="markField('telefono')" pInputText/>
                     </div> 
             </div>
         </div>
@@ -40,12 +40,13 @@
                     <i [style]="setStarStyle(3).color" [class]="setStarStyle(3).icon" (click)="setPuntaje(3)"></i>
                     <i [style]="setStarStyle(4).color" [class]="setStarStyle(4).icon" (click)="setPuntaje(4)"></i>
                     <i [style]="setStarStyle(5).color" [class]="setStarStyle(5).icon" (click)="setPuntaje(5)"></i>
+                    <!-- <label *ngIf="getPuntaje() > 0">({{getPuntaje()}})</label>-->
                 </div>
             </div>
         </div>
         <div class="panel-bottom">
-            <button class="volver" label="Volver" (click)="volverHome()"  pButton></button>
-            <button class="enviar" label="Enviar" pButton></button>
+            <button class="volver" icon="pi pi-arrow-left" (click)="volverHome(false)" pTooltip="Volver a Home" pButton></button>
+            <button class="enviar" label="Enviar" icon="pi pi-send" pTooltip="Enviar Calificacion" pButton></button>
         </div>
         </form>
     </div>

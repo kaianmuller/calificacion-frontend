@@ -12,7 +12,7 @@ import { SystemMessagesService } from 'src/app/services/system-messages/system-m
 export class HomeComponent implements OnInit {
 
   showCalificacionCard:boolean = false;
-
+  showFinalCard:boolean = false;
   constructor(private messageService:MessageService,private sysMsg:SystemMessagesService,private authServ:AuthService,private router:Router) { }
 
   ngOnInit(): void {
@@ -24,6 +24,13 @@ export class HomeComponent implements OnInit {
 
   showLoginFailMessage(error: any) {
     this.messageService.add(this.sysMsg.getSystemMessage(error.status));
+  }
+
+
+
+  closeCalificacion(event:boolean){
+    this.showCalificacionCard = false; 
+    this.showFinalCard = event;
   }
 
 

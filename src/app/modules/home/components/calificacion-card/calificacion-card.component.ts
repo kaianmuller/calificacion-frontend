@@ -11,7 +11,7 @@ import { Utils } from 'src/app/shared/Utils';
   styleUrls: ['./calificacion-card.component.css']
 })
 export class CalificacionCardComponent implements OnInit {
-@Output() volver:EventEmitter<void> = new EventEmitter<void>();
+@Output() volver:EventEmitter<boolean> = new EventEmitter<boolean>();
 
   formulario:FormGroup = new FormGroup({});
   formErrors: { [k: string]: string } = {};
@@ -32,7 +32,7 @@ ngOnInit(): void {}
       puntaje:new FormControl(null,[Validators.required]),
       observaciones:new FormControl(null,[Validators.maxLength(255)]),
       empresa: new FormControl(null),
-      telefono: new FormControl(null, [Validators.pattern("^[0-9]*$"),Validators.max(999999999999)]),
+      telefono: new FormControl(null, [Validators.pattern("^[0-9]*$"),Validators.maxLength(12)]),
     });
 
     this.resetValidate();
@@ -85,10 +85,11 @@ submit(event: Event) {
 
     console.log(calificacion);
 
-    this.calificServ.createOne(calificacion).then((result)=>{console.log(result)})
-
-    this.resetForm();
-    this.volverHome();
+    this.calificServ.createOne(calificacion).then((result)=>{
+      console.log(result);
+      this.resetForm();
+      this.volverHome(true);
+    });
   } else {
     this.validate();
   }
@@ -129,8 +130,8 @@ async exist(control: AbstractControl) {
 
 
 
-volverHome(){
-  this.volver.emit();
+volverHome(state:boolean){
+  this.volver.emit(state);
 }
 
 

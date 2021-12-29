@@ -15,12 +15,16 @@ import {MessagesModule} from 'primeng/messages';
 import {MessageModule} from 'primeng/message';
 import {ToastModule} from 'primeng/toast';
 import { MessageService } from 'primeng/api';
+import { FinalCardComponent } from './components/final-card/final-card.component';
+import {DialogModule} from 'primeng/dialog';
+
 
 @NgModule({
   declarations: [
     HomeComponent,
     CalificacionCardComponent,
-    LoginCardComponent
+    LoginCardComponent,
+    FinalCardComponent
   ],
   imports: [
     CommonModule,
@@ -34,7 +38,8 @@ import { MessageService } from 'primeng/api';
     BrowserAnimationsModule,
     MessageModule,
     MessagesModule,
-    ToastModule
+    ToastModule,
+    DialogModule
   ],
   exports:[HomeComponent],
   providers:[MessageService]

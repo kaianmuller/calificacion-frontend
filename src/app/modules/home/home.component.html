@@ -5,7 +5,7 @@
 
     <div class="panel-top">
         <img class="logo" src="assets/img/logo-datapar.png">
-        <button class="acceso" label="Acceso" pButton (click)="op.toggle($event)"></button>
+        <button class="acceso" label="Acceso" pButton (click)="op.toggle($event)" pTooltip="Acceso de administrador"></button>
         <p-overlayPanel #op>
             <ng-template pTemplate>
                 <app-login-card (sendFailLoginError)="showLoginFailMessage($event)"></app-login-card>
@@ -13,17 +13,19 @@
         </p-overlayPanel>
     </div>
     <div class="panel-center">
-        <div class="inicio" *ngIf="!showCalificacionCard">
+        <div class="inicio" *ngIf="!showCalificacionCard && !showFinalCard">
             <div class="slogan">
                 <label class="msg1">Te gustó nuestro servicio?</label>
                 <label class="msg2">Demuestranos con su calificación!</label>
             </div>
-            <button class="calificar" pButton label="Empezar" (click)="showCalificacionCard = true"></button>
+            <button class="calificar" pButton label="Empezar" (click)="showCalificacionCard = true" pTooltip="Empezar calificación"></button>
         </div>
         <div *ngIf="showCalificacionCard">
-            <app-calificacion-card (volver)="showCalificacionCard = false"></app-calificacion-card>
+            <app-calificacion-card (volver)="closeCalificacion($event)"></app-calificacion-card>
+        </div>
+        <div *ngIf="showFinalCard">
+            <app-final-card (volver)="showFinalCard = false"></app-final-card>
         </div>
     </div>
-    
+
   </div>
-  

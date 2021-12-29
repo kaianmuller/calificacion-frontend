@@ -30,7 +30,7 @@ export class SystemMessagesService {
     this.formMessages = [
       { required: '- Este campo es requerido!' },
       { existe: '- El correo ingresado ya existe en el sistema!' },
-      { maxlength: '- Excediste el numero maximo de caracteres permitido (255)!' },
+      { maxlength: '- Excediste el numero maximo de caracteres permitido!' },
       { max: '- Excediste el valor maximo permitido!' },
       { min: '- Este campo requiere un valor superior!' },
       { email: '- Este debe contener un email!' },
